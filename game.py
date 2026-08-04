@@ -28,16 +28,16 @@ actions = [
     'Pass the street',
     'Make an apology video',
 
-    'Doxxear a alguien',
-    'Suplantación de identidad',
-    'María esta a 10km de tí',
-    'Uso de IA generativa',
-    'Robar ideas de otros creadores',
-    'Broma salió mal',
-    'Fake info',
-    'Hcacer trampa en un juego',
-    'Lily',
-    'Abandono de amigos',
+    # 'Doxxear a alguien',
+    # 'Suplantación de identidad',
+    # 'María esta a 10km de tí',
+    # 'Uso de IA generativa',
+    # 'Robar ideas de otros creadores',
+    # 'Broma salió mal',
+    # 'Fake info',
+    # 'Hcacer trampa en un juego',
+    # 'Lily',
+    # 'Abandono de amigos',
     ]
 
 people = ['Vik', 'Zuri', 'Alec']
