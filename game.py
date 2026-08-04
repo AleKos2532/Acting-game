@@ -12,16 +12,42 @@ def new_game(action_list: list, people_list: list):
     """    
     chosen_action = r.choice(actions)
     chosen_person = r.choice(people)
-    people.remove(chosen_person)
+    people_list.remove(chosen_person)
 
     print(f'The judge is {chosen_person}.')
     print(f'The action is {chosen_action}.')
     input('Continue ')
     print()
 
-    for actor in people:
+    for actor in people_list:
         number = r.randint(1, 10)
-        print(f'{actor}: {number}')
+        print(f'\t{actor}: {number}')
+    input("Continue: ")
+    replay()
+
+
+def add_people():
+    """
+    This functions adds new people to the party.
+    """    
+    while True:
+        name = input("Insert a name: ")
+        if name.lower().strip() in ['d', 'no']:
+            break
+        else:
+            people.append(name)
+            print("Wan't to add another player?")
+
+
+def replay():
+    print("Do you wan't to play again?")
+    play_again = input().lower().strip()
+    if play_again == "yes":
+        new_game(actions, people[:])
+    elif play_again in ['no', '']:
+        print("Thanks for playing.")
+    else:
+        replay()
 
 
 # The list of people and actions
@@ -66,18 +92,13 @@ actions = [
     ]
 people = []
 
+
+# Game running
+
 intro_prompt = "Welcome to the game, please enter a name."
 intro_prompt += "\nOnce you're done type \"d\"."
 print(intro_prompt)
 
-while True:
-    name = input("Insert a name: ")
-    if name.lower().strip() == 'd' or name.lower().strip() == 'no':
-        break
-    else:
-        people.append(name)
-        print("Wan't to add another player?")
+add_people()
 
-new_game(actions, people)
-
-# See that removing prevents replayability, keep that in mind for future updates.
+new_game(actions, people[:])
