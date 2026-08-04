@@ -14,7 +14,7 @@ def new_game(action_list: list, people_list: list):
     chosen_person = r.choice(people)
     people_list.remove(chosen_person)
 
-    print(f'The judge is {chosen_person}.')
+    print(f'\nThe judge is {chosen_person}.')
     print(f'The action is {chosen_action}.')
     input('Continue ')
     print()
@@ -22,7 +22,7 @@ def new_game(action_list: list, people_list: list):
     for actor in people_list:
         number = r.randint(1, 10)
         print(f'\t{actor}: {number}')
-    input("Continue: ")
+    input("\nContinue ")
     replay()
 
 
@@ -40,7 +40,9 @@ def add_people():
 
 
 def replay():
-    print("Do you wan't to play again?")
+    replay_prompt = 'Do you wan\'t to play again?'
+    replay_prompt += '\nType "yes" or "no".'
+    print(replay_prompt)
     play_again = input().lower().strip()
     if play_again == "yes":
         new_game(actions, people[:])
