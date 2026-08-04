@@ -16,12 +16,13 @@ def new_game(action_list: list, people_list: list):
 
     print(f'The judge is {chosen_person}.')
     print(f'The action is {chosen_action}.')
-    input('Continue')
+    input('Continue ')
     print()
 
     for actor in people:
         number = r.randint(1, 10)
         print(f'{actor}: {number}')
+
 
 # The list of people and actions
 actions = [
@@ -63,7 +64,19 @@ actions = [
     # 'Lily',
     # 'Abandono de amigos',
     ]
-people = ['Vik', 'Zuri', 'Alec']
+people = []
+
+intro_prompt = "Welcome to the game, please enter a name."
+intro_prompt += "\nOnce you're done type \"d\"."
+print(intro_prompt)
+
+while True:
+    name = input("Insert a name: ")
+    if name.lower().strip() == 'd' or name.lower().strip() == 'no':
+        break
+    else:
+        people.append(name)
+        print("Wan't to add another player?")
 
 new_game(actions, people)
 
