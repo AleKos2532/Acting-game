@@ -1,5 +1,29 @@
 import random as r
 
+def new_game(action_list: list, people_list: list):
+    """
+    This function starts a new game and choses a person and an action,
+    the rest of the people will be asigned a number based on the performance
+    the acting should have.
+
+    Args:
+        action_list (list): A list with the actions
+        people_list (list): A list with the people playing
+    """    
+    chosen_action = r.choice(actions)
+    chosen_person = r.choice(people)
+    people.remove(chosen_person)
+
+    print(f'The judge is {chosen_person}.')
+    print(f'The action is {chosen_action}.')
+    input('Continue')
+    print()
+
+    for actor in people:
+        number = r.randint(1, 10)
+        print(f'{actor}: {number}')
+
+# The list of people and actions
 actions = [
     'Flying',
     'Diving',
@@ -39,18 +63,8 @@ actions = [
     # 'Lily',
     # 'Abandono de amigos',
     ]
-
 people = ['Vik', 'Zuri', 'Alec']
 
-chosen_action = r.choice(actions)
-chosen_person = r.choice(people)
-people.remove(chosen_person)
+new_game(actions, people)
 
-print(f'The judge is {chosen_person}.')
-print(f'The action is {chosen_action}.')
-input('Continue')
-print()
-
-for actor in people:
-    number = r.randint(1, 10)
-    print(f'{actor}: {number}')
+# See that removing prevents replayability, keep that in mind for future updates.
