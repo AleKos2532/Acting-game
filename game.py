@@ -6,8 +6,14 @@ def main_menu():
     """
     print(intro_prompt)
     choice = input().lower()
-    if choice in ["1", "1."]:
+    if choice in ["1", "1.",]:
         start_new_game()
+    elif choice in ["2", "2.",]:
+        instructions()
+    elif choice in ["3", "3.",]:
+        ...
+    elif choice in ["4", "4.",]:
+        ...
     else:
         print("\nThat's not an option.\n")
         main_menu()
@@ -17,6 +23,10 @@ def start_new_game():
     print(name_prompt)
     add_people()
     new_game(actions1, people[:])
+
+def instructions():
+    print(instructions_prompt)
+    main_menu()
 
 
 def add_people():
@@ -127,16 +137,36 @@ people = []
 # Constants and texts
 choice = ""
 
-intro_prompt = "Welcome to the acting game, please choose an option."
-intro_prompt += "\n1. New game"
-intro_prompt += "\n2. Instructions (coming soon)"
-intro_prompt += "\n3. Options (coming soon)"
+intro_prompt = "Welcome to the acting game, please choose an option." \
+"\n1. New game" \
+"\n2. Instructions" \
+"\n3. Options (coming soon)" \
+"\n4. Quit"
 
-name_prompt = "\nPlease enter a name"
-name_prompt += "\nOnce you're done type \"d\"."
+name_prompt = "\nPlease enter a name" \
+"\nOnce you're done type \"d\"."
 
-replay_prompt = 'Do you wan\'t to play again?'
-replay_prompt += '\nType "yes" or "no".'
+replay_prompt = 'Do you wan\'t to play again?' \
+'\nType "yes" or "no".'
+
+instructions_prompt = "\nInstructions:" \
+"\nThis game is about acting, the goal of the game is that the judge guesses" \
+"\nthe number that was assigned to you by acting the action according to the" \
+"\nnumber you were assigned." \
+"\t\n1. Input the names of each player and type \"d\" once you're done." \
+"\t\n2. The game will asign a judge between the players and a random action that" \
+"\neach of the players will perform. The judge will put the scores" \
+"\nof each player." \
+"\t\n3. At this point the judge shouln't see the program, press enter to continue." \
+"\t\n4. Each player will be assigned with a random number between 1 and 10, being 1" \
+"\nthe action done bad or ending in disaster and 10 being a perfect interpretation" \
+"\nof the action." \
+"\t\n5. One by one, each player will act their action having in mind their" \
+"\ncorresponding number." \
+"\t\n6. Once everyone passes, the judge will rate all the performances." \
+"\t\n7. The answers are revealed and the people who's number was guessed win." \
+"\n"
+
 
 # Game running
 
