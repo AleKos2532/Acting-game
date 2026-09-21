@@ -7,8 +7,8 @@ def new_game(action_list: list, people_list: list):
     the acting should have.
 
     Args:
-        action_list (list): A list with the actions
-        people_list (list): A list with the people playing
+        action_list (list): A list with the actions.
+        people_list (list): A list with the people playing.
     """    
     chosen_action = r.choice(actions)
     chosen_person = r.choice(people)
@@ -56,15 +56,25 @@ def replay():
 actions = [
     'Flying',
     'Diving',
-    'Swim',
-    'Paracaiding',
-    'Bungee jump',
+    'Swimming',
+    'Smell flowers',
+    'Paracaidism',
+    # 'Bungee jump',
     'Horse riding',
     'Eating a slice of pizza',
-    'Hitting Zuri',
+    # 'Hitting someone',
     'Playing the piano',
+    'Going to the beach',
+    'Going to a fair',
+    'Going to the zoo',
+    'Going to an amusement park',
+    'Deliver a package',
     'Getting shot',
     'Doing Yoga',
+    'Go camping',
+    'Take care of a baby',
+    'Play a sport',
+    'Go buy something',
     'Running a marathon',
     'To climb',
     'To measure an object',
@@ -79,7 +89,10 @@ actions = [
     'Get on a rocket',
     'Drive',
     'Pass the street',
-    'Make an apology video',
+    'Playing with a dog',
+    'Be a spy',
+    'Go to the bathroom',
+    # 'Make an apology video',
 
     # 'Doxxear a alguien',
     # 'Suplantación de identidad',
@@ -88,8 +101,7 @@ actions = [
     # 'Robar ideas de otros creadores',
     # 'Broma salió mal',
     # 'Fake info',
-    # 'Hcacer trampa en un juego',
-    # 'Lily',
+    # 'Hacer trampa en un juego',
     # 'Abandono de amigos',
     ]
 people = []
