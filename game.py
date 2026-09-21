@@ -1,5 +1,37 @@
 import random as r
 
+def main_menu():
+    """
+    Starts the menu with multiple options.
+    """
+    print(intro_prompt)
+    choice = input().lower()
+    if choice in ["1", "1."]:
+        start_new_game()
+    else:
+        print("\nThat's not an option.\n")
+        main_menu()
+
+
+def start_new_game():
+    print(name_prompt)
+    add_people()
+    new_game(actions1, people[:])
+
+
+def add_people():
+    """
+    This functions adds new people to the party.
+    """    
+    while True:
+        name = input("Insert a name: ")
+        if name.lower().strip() in ['d', 'no', '']:
+            break
+        else:
+            people.append(name)
+            print("Wan't to add another player?")
+
+
 def new_game(action_list: list, people_list: list):
     """
     This function starts a new game and choses a person and an action,
@@ -10,8 +42,8 @@ def new_game(action_list: list, people_list: list):
         action_list (list): A list with the actions.
         people_list (list): A list with the people playing.
     """    
-    chosen_action = r.choice(actions)
-    chosen_person = r.choice(people)
+    chosen_action = r.choice(action_list)
+    chosen_person = r.choice(people_list)
     people_list.remove(chosen_person)
 
     print(f'\nThe judge is {chosen_person}.')
@@ -26,26 +58,11 @@ def new_game(action_list: list, people_list: list):
     replay()
 
 
-def add_people():
-    """
-    This functions adds new people to the party.
-    """    
-    while True:
-        name = input("Insert a name: ")
-        if name.lower().strip() in ['d', 'no']:
-            break
-        else:
-            people.append(name)
-            print("Wan't to add another player?")
-
-
 def replay():
-    replay_prompt = 'Do you wan\'t to play again?'
-    replay_prompt += '\nType "yes" or "no".'
     print(replay_prompt)
     play_again = input().lower().strip()
     if play_again == "yes":
-        new_game(actions, people[:])
+        new_game(actions1, people[:])
     elif play_again in ['no', '']:
         print("Thanks for playing.")
     else:
@@ -53,7 +70,7 @@ def replay():
 
 
 # The list of people and actions
-actions = [
+actions1 = [
     'Flying',
     'Diving',
     'Swimming',
@@ -104,15 +121,23 @@ actions = [
     # 'Hacer trampa en un juego',
     # 'Abandono de amigos',
     ]
+    
 people = []
 
+# Constants and texts
+choice = ""
+
+intro_prompt = "Welcome to the acting game, please choose an option."
+intro_prompt += "\n1. New game"
+intro_prompt += "\n2. Instructions (coming soon)"
+intro_prompt += "\n3. Options (coming soon)"
+
+name_prompt = "\nPlease enter a name"
+name_prompt += "\nOnce you're done type \"d\"."
+
+replay_prompt = 'Do you wan\'t to play again?'
+replay_prompt += '\nType "yes" or "no".'
 
 # Game running
 
-intro_prompt = "Welcome to the game, please enter a name."
-intro_prompt += "\nOnce you're done type \"d\"."
-print(intro_prompt)
-
-add_people()
-
-new_game(actions, people[:])
+main_menu()
